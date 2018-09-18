@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">HelloButton</string>
+    <string name="message_start">Count = 0</string>
+    <string name="message_format">Count = %d</string>
+    <string name="button_decrement">-1</string>
+    <string name="button_reset">Reset</string>
+    <string name="button_increment">+1</string>
+</resources>
