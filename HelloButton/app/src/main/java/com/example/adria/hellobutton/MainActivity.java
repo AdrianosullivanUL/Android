@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
     }
     private void updateView()
     {
+        if (mCounter > 10)
+            mMessageTextView.setVisibility(View.INVISIBLE);
+        else
+            mMessageTextView.setVisibility(View.VISIBLE);
+
         mMessageTextView.setText((getString(R.string.message_format, mCounter)));
     }
 }
