@@ -183,7 +183,7 @@
                 android:text="@string/mission_text" />
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/wb_points_textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -195,7 +195,7 @@
             android:layout_height="match_parent" >
 
             <Switch
-                android:id="@+id/switch1"
+                android:id="@+id/wb_switch"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
