@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView total_points_textView = findViewById(R.id.total_points_textView);
         final TextView color_points_textView = findViewById(R.id.color_points_textView);
         final TextView wb_points_textView = findViewById(R.id.wb_points_textView);
+        final TextView color_identification_textView = findViewById(R.id.color_identification_textView);
 
 
         final TextView near_bal_editText = findViewById(R.id.near_bal_editText);
@@ -152,6 +153,8 @@ public class MainActivity extends AppCompatActivity {
                 CalcTotalPoints();
                 color_points_textView.setText(mColorPoints + " Points");
                 total_points_textView.setText(mTotalPoints + " Points");
+                color_identification_textView.setText(progress + " Fixes");
+
             }
 
             @Override

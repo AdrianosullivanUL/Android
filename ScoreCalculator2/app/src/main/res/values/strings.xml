@@ -23,4 +23,5 @@
     <string name="total_points">0 points</string>
     <string name="result">Result</string>
     <string name="reset">RESET</string>
+    <string name="fix_count">Fix Count</string>
 </resources>

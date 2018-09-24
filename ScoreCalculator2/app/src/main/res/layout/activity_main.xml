@@ -53,6 +53,12 @@
                 android:max="3"
                 android:progress="3" />
 
+            <TextView
+                android:id="@+id/color_identification_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fix_count" />
+
         </TableRow>
 
         <TableRow
