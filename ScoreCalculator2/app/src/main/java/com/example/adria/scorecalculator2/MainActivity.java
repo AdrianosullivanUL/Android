@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         final TextView color_points_textView = findViewById(R.id.color_points_textView);
         final TextView wb_points_textView = findViewById(R.id.wb_points_textView);
         final TextView color_identification_textView = findViewById(R.id.color_identification_textView);
+        final TextView near_ball_points_textView = findViewById(R.id.near_ball_points_textView);
+        final TextView far_ball_points_textView = findViewById(R.id.far_ball_points_textView);
+        final TextView robot_home_points_textView = findViewById(R.id.robot_home_points_textView);
 
 
         final TextView near_bal_editText = findViewById(R.id.near_bal_editText);
@@ -61,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
                     mNearBallPoints = 10;
 
                 CalcTotalPoints();
-                color_points_textView.setText(mDistancePoints + " Points");
                 total_points_textView.setText(mTotalPoints + " Points");
+                near_ball_points_textView.setText(Integer.toString(mNearBallPoints));
 
             }
         });
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     mFarBallFeet = Integer.parseInt(far_ball_editText.getText().toString());
                 } catch (Exception ex) {
-                    mNearBallFeet = 9999;
+                    mFarBallFeet = 9999;
                 }
                 mFarBallPoints = 0;
                 if (mFarBallFeet <= 5)
@@ -94,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
                     mFarBallPoints = 20;
 
                 CalcTotalPoints();
-                color_points_textView.setText(mDistancePoints + " Points");
                 total_points_textView.setText(mTotalPoints + " Points");
+                far_ball_points_textView.setText(Integer.toString(mFarBallPoints));
             }
         });
 
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     mRobotHomeFeet = Integer.parseInt(robot_home_editText.getText().toString());
                 } catch (Exception ex) {
-                    mNearBallFeet = 9999;
+                    mRobotHomeFeet = 9999;
                 }
                 mRobotHomePoints = 0;
                 if (mRobotHomeFeet <= 5)
@@ -125,10 +128,10 @@ public class MainActivity extends AppCompatActivity {
                 else if (mRobotHomeFeet <= 45)
                     mRobotHomePoints = 10;
 
-                CalcTotalPoints();
-                color_points_textView.setText(mDistancePoints + " Points");
-                total_points_textView.setText(mTotalPoints + " Points");
 
+                CalcTotalPoints();
+                total_points_textView.setText(mTotalPoints + " Points");
+                robot_home_points_textView.setText(Integer.toString(mRobotHomePoints));
             }
         });
 
@@ -183,6 +186,42 @@ public class MainActivity extends AppCompatActivity {
                 total_points_textView.setText(mTotalPoints + " Points");
             }
         });
+
+        final Button reset_button = findViewById(R.id.reset_button);
+        reset_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mColorPoints = 0;
+                mNearBallFeet = 0;
+                mFarBallFeet = 0;
+                mRobotHomeFeet = 0;
+                mNearBallPoints = 0;
+                mFarBallPoints = 0;
+                mRobotHomePoints = 0;
+                mDistancePoints = 0;
+                mWBPoints = 0;
+                mTotalPoints = 0;
+
+                colour_ident_seekBar.setProgress(3);
+                near_bal_editText.setText("");
+                far_ball_editText.setText("");
+                robot_home_editText.setText("");
+
+                color_points_textView.setText(R.string.colour_points);
+                color_identification_textView.setText(R.string.colour_identification);
+                color_points_textView.setText(R.string.colour_points);
+                near_ball_points_textView.setText(R.string.near_ball_points);
+                far_ball_points_textView.setText(R.string.far_ball_points);
+                robot_home_points_textView.setText(R.string.robot_home_points);
+                wb_points_textView.setText(R.string.wb_points);
+                total_points_textView.setText(R.string.total_points);
+
+
+
+
+            }
+        });
+
     }
 
     private void CalcTotalPoints() {
@@ -194,3 +233,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
+

@@ -46,7 +46,7 @@
 
             <SeekBar
                 android:id="@+id/colour_ident_seekBar"
-                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                style="@android:style/Widget.Material.SeekBar.Discrete"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -117,7 +117,7 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/near_ball_points_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -143,7 +143,7 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/far_ball_points_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -169,7 +169,7 @@
             android:inputType="number" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/robot_home_points_textView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -206,14 +206,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/wb_success" />
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
         </TableRow>
-
-
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -264,7 +257,7 @@
                 android:layout_weight="1" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/reset_button"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
