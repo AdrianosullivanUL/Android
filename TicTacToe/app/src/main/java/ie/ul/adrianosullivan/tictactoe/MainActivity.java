@@ -44,23 +44,19 @@ public class MainActivity extends AppCompatActivity {
             mButtons[i].setText(mGame.stringForButtonAtIndex(i));
         }
     }
-    public void pressedNewGame(View view)
-    {
-        mGame = new TicTacToeGame(this);
-        updateView();
-
-    }
 
     public void pressedSquare (View view) {
          tagAsString = view.getTag().toString();
          tagAsInt = Integer.parseInt(tagAsString);
         //Log.d("TTT", "You pressed index " + tagAsInt);
-        Toast.makeText(this, "You pressed index " + tagAsInt, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "You pressed index " + tagAsInt, Toast.LENGTH_SHORT).show();
         mGame.pressedButtonAtIndex(tagAsInt);
         updateView();
     }
     public void pressNewGame (View view)
     {
-        Toast.makeText(this, "New Game",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "New Game",Toast.LENGTH_SHORT).show();
+        mGame   = new TicTacToeGame(this);
+        updateView();
     }
 }
