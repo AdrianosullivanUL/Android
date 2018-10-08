@@ -1,6 +1,8 @@
 package ie.ul.adrianosullivan.linearlightsout;
 
 import android.app.ActionBar;
+import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
         //Log.d("TTT", "Loading new game " );
         mGame   = new LightsOutGame(mButtonCount);
         updateView();
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
     public void pressedLight (View view) {
         tagAsString = view.getTag().toString();
