@@ -1,9 +1,13 @@
 package ie.ul.adrianosullivan.linearlightsout;
 
+import android.app.ActionBar;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,8 +53,9 @@ public class MainActivity extends AppCompatActivity {
         for (int i=0;i <= mButtonCount-1;i++)
         {
             mButtons[i].setEnabled(true);
+            mButtons[i].setBackgroundColor(getResources().getColor(R.color.buttonBackground));
         }
-        headingTextView.setText("@string/make_buttons_match");
+        headingTextView.setText(R.string.make_buttons_match);
     }
     public void updateView()
     {
@@ -64,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             for (int i=0;i <= mButtonCount-1;i++)
             {
                 mButtons[i].setEnabled(false);
+                mButtons[i].setBackgroundColor(getResources().getColor(R.color.buttonBackgroundDisabled));
             }
 
         } else {

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Linear Lights Out</string>
+    <string name="app_name">Lights Out</string>
     <string name="make_buttons_match">Make Buttons Match</string>
     <string name="new_game">New Game</string>
     <string name="light_on">1</string>
