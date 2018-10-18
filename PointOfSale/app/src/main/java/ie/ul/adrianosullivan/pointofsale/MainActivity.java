@@ -1,10 +1,12 @@
 package ie.ul.adrianosullivan.pointofsale;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -38,11 +40,30 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            // for now show item on screen
-            mCurrentItem = Item.getDefaultItem();
-            showCurrentItem();
+            additem();
             }
         });
+    }
+
+    private void additem() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.AddanItem);
+        //builder.setMessage("Hi");
+        //builder.setPositiveButton("OK", null    );
+
+
+        View view = getLayoutInflater().inflate(R.layout.dialog_add, null, false);
+        builder.setView(view);
+        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.create().show();
+
+
     }
 
     private void showCurrentItem() {
