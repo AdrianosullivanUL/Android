@@ -12,5 +12,15 @@
         android:icon="@android:drawable/ic_menu_revert"
         app:showAsAction="ifRoom"
         ></item>
+    <item android:id="@+id/action_search"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"
+        ></item>
+    <item android:id="@+id/action_clear_all"
+        android:title="Clear All"
+        android:icon="@android:drawable/ic_menu_delete"
+        app:showAsAction="ifRoom"
+        ></item>
 
 </menu>
