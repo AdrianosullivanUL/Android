@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
         // todo Connect recycler view to name adaptor
         final NameAdaptor nameAdaptor = new NameAdaptor();
         recyclerView.setAdapter(nameAdaptor);
-nameAdaptor.addName();
-nameAdaptor.addName();
-nameAdaptor.addName();
+        nameAdaptor.addName();
+        nameAdaptor.addName();
+        nameAdaptor.addName();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
