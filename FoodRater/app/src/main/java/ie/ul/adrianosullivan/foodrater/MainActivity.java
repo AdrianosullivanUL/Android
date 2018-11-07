@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         // todo Connect recycler view to name adaptor
         final FoodAdaptor foodAdaptor = new FoodAdaptor();
         recyclerView.setAdapter(foodAdaptor);
-        //foodAdaptor.addFood();
-        //foodAdaptor.addFood();
+        foodAdaptor.addFood();
+        foodAdaptor.addFood();
         foodAdaptor.addFood();
 
 

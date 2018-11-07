@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/food_pic"
             android:text="Food Name"
+            android:editable="false"
             android:textSize="24dp" />
 
         <RatingBar

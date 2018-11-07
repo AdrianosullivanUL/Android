@@ -2,6 +2,7 @@ package ie.ul.adrianosullivan.foodrater;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -17,13 +18,20 @@ public class FoodAdaptor extends RecyclerView.Adapter<FoodAdaptor.FoodViewHolder
     private Random mRandom = new Random();
     private RecyclerView mRecyclerView;
 
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+        mRecyclerView = recyclerView;
+    }
+
     public void addFood() {
         mFoods.add(0, new Food());
-        notifyDataSetChanged();
         notifyItemInserted(0);
         notifyItemRangeChanged(0, mFoods.size());
-       // mRecyclerView.scrollToPosition(0);
+        mRecyclerView.getLayoutManager().scrollToPosition(0);
+
+
     }
+
     public void removeFood(int index) {
         mFoods.remove(index);
         notifyItemRemoved(index);
@@ -33,16 +41,17 @@ public class FoodAdaptor extends RecyclerView.Adapter<FoodAdaptor.FoodViewHolder
 
     @NonNull
     @Override
-    public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return null;
+    public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_item_view, parent, false);
+        return new FoodViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull FoodViewHolder foodViewHolder, int i) {
+    public void onBindViewHolder(@NonNull FoodViewHolder holder, int i) {
         final Food food = mFoods.get(i);
-       // foodViewHolder.mImageview.setImageResource(mFoods.get(i).getImageResourceId());
-       // foodViewHolder.mName.setText(mFoods.get(i).getName());
-       // foodViewHolder.mRatingBar.setNumStars((int) mFoods.get(i).getRating());
+        holder.mName.setText(food.getName());
+        holder.mImageview.setImageResource(food.getImageResourceId());
+        holder.mRatingBar.setRating(food.getRating());
 
     }
 
