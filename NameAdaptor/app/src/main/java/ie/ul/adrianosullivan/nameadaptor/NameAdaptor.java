@@ -82,6 +82,7 @@ public class NameAdaptor extends RecyclerView.Adapter<NameAdaptor.NameViewHolder
                     return true;
                 }
             });
+
         }
     }
 }
