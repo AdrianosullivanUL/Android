@@ -13,6 +13,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -25,7 +26,10 @@ public class MovieQuoteAdaptor extends RecyclerView.Adapter<MovieQuoteAdaptor.Mo
 
     public MovieQuoteAdaptor() {
         CollectionReference movieQuotesCollectionRef = FirebaseFirestore.getInstance().collection(Constants.COLLECTION_PATH);
-        movieQuotesCollectionRef.addSnapshotListener(new EventListener<QuerySnapshot>() {
+        movieQuotesCollectionRef
+                .orderBy(Constants.KEY_CREATED,Query.Direction.DESCENDING)
+                .limit(50)
+                .addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(QuerySnapshot queryDocumentSnapshots, FirebaseFirestoreException e) {
                 if (e != null) {
