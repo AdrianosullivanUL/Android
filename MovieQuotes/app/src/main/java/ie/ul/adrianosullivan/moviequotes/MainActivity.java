@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // temp firebase test
         final FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("movie_quotes")
+/*        db.collection("movie_quotes")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -50,8 +52,14 @@ public class MainActivity extends AppCompatActivity {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
-                });
+                });*/
 
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
+
+        MovieQuoteAdaptor movieQuoteAdaptor = new MovieQuoteAdaptor();
+        recyclerView.setAdapter( movieQuoteAdaptor);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
