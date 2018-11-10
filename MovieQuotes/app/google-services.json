@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "258040178634",
+    "firebase_url": "https://movie-quotes-video-d9717.firebaseio.com",
+    "project_id": "movie-quotes-video-d9717",
+    "storage_bucket": "movie-quotes-video-d9717.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258040178634:android:f8c9a377250a3b49",
+        "android_client_info": {
+          "package_name": "ie.ul.adrianosullivan.moviequotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258040178634-afdoc3636c6u1qfbg58i9cs2prlq12ee.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ie.ul.adrianosullivan.moviequotes",
+            "certificate_hash": "eb41dd995e115e8220ed766a37834b88a8632cf8"
+          }
+        },
+        {
+          "client_id": "258040178634-cvriap3sjgoj4aroikjvhbskmca117c7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoOdcIJrZX57pb1L-DbqHQPNyzTY-M-ns"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "258040178634-cvriap3sjgoj4aroikjvhbskmca117c7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
