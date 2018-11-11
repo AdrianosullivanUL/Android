@@ -18,6 +18,8 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.w3c.dom.Document;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -76,8 +78,10 @@ public class MovieQuoteAdaptor extends RecyclerView.Adapter<MovieQuoteAdaptor.Mo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    DocumentSnapshot ds = mMovieQuotesSnapshots.get(getAdapterPosition());
                     Context c = itemView.getContext();
                     Intent intent = new Intent(c,MovieQuoteDetailActivity.class);
+                    intent.putExtra(Constants.EXTRA_DOCUMENT_ID, ds.getId());
                     c.startActivity(intent);
                 }
             });
