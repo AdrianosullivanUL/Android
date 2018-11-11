@@ -1,5 +1,7 @@
 package ie.ul.adrianosullivan.moviequotes;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -67,10 +69,18 @@ public class MovieQuoteAdaptor extends RecyclerView.Adapter<MovieQuoteAdaptor.Mo
         private TextView mQuoteTextView;
         private TextView mMovieTextView;
 
-        public MovieQuoteViewHolder(View itemView) {
+        public MovieQuoteViewHolder(final View itemView) {
             super(itemView);
             mQuoteTextView = itemView.findViewById(R.id.itemview_quote);
             mMovieTextView = itemView.findViewById(R.id.itemview_movie);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context c = itemView.getContext();
+                    Intent intent = new Intent(c,MovieQuoteDetailActivity.class);
+                    c.startActivity(intent);
+                }
+            });
 
         }
 
