@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.firestore.DocumentReference;
@@ -19,6 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.koushikdutta.ion.Ion;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -26,7 +28,8 @@ import java.util.Map;
 
 public class PhotoBucketDetailActivity extends AppCompatActivity {
     private TextView mCaptionTextView;
-    private TextView mURLTextView;
+    //private TextView mURLTextView;
+    private ImageView mImageView;
 
     private DocumentReference mDocRef;
     private DocumentSnapshot mDocSnapshot;
@@ -41,7 +44,8 @@ public class PhotoBucketDetailActivity extends AppCompatActivity {
         Intent receivedIntent = getIntent();
         String docId = receivedIntent.getStringExtra(Constants.EXTRA_DOCUMENT_ID);
         mCaptionTextView = findViewById(R.id.detail_caption);
-        mURLTextView = findViewById(R.id.detail_url);
+        //mURLTextView = findViewById(R.id.detail_url);
+        mImageView = findViewById(R.id.detail_imageview);
 
         mDocRef = FirebaseFirestore.getInstance().collection(Constants.COLLECTION_PATH).document(docId);
         mDocRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
@@ -54,13 +58,12 @@ public class PhotoBucketDetailActivity extends AppCompatActivity {
                 if (documentSnapshot.exists()) {
                     mDocSnapshot = documentSnapshot;
                     mCaptionTextView.setText((String) documentSnapshot.get(Constants.KEY_CAPTION));
-                    mURLTextView.setText((String) documentSnapshot.get(Constants.KEY_URL));
+                   // mURLTextView.setText((String) documentSnapshot.get(Constants.KEY_URL));
+                    Ion.with(mImageView).load((String)documentSnapshot.get(Constants.KEY_URL));
                 }
 
             }
         });
-
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -71,6 +74,7 @@ public class PhotoBucketDetailActivity extends AppCompatActivity {
             }
         });
     }
+
     private void showEditDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

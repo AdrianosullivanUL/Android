@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="URL:" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/detail_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,5 +38,9 @@
         android:layout_margin="16sp"
         android:text="URL goes here"
         android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:textSize="20sp" />-->
+    <ImageView
+        android:id="@+id/detail_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -60,7 +60,7 @@ public class PhotoBucketAdaptor extends RecyclerView.Adapter<PhotoBucketAdaptor.
         String caption = (String) ds.get(Constants.KEY_CAPTION);
         String url = (String) ds.get(Constants.KEY_URL);
         photoBucketViewHolder.mCaptionTextView.setText(caption);
-        photoBucketViewHolder.mURLTextView.setText(url);
+       // photoBucketViewHolder.mURLTextView.setText(url);
     }
 
     @Override
@@ -69,12 +69,12 @@ public class PhotoBucketAdaptor extends RecyclerView.Adapter<PhotoBucketAdaptor.
     }
     class PhotoBucketViewHolder extends RecyclerView.ViewHolder {
         private TextView mCaptionTextView;
-        private TextView mURLTextView;
+       // private TextView mURLTextView;
 
         public PhotoBucketViewHolder(final View itemView) {
             super(itemView);
             mCaptionTextView = itemView.findViewById(R.id.itemview_caption);
-            mURLTextView = itemView.findViewById(R.id.itemview_url);
+           // mURLTextView = itemView.findViewById(R.id.itemview_url);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

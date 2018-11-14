@@ -33,10 +33,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-       // FirebaseFirestore db = FirebaseFirestore.getInstance();
+        // FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         PhotoBucketAdaptor photoBucketAdaptor = new PhotoBucketAdaptor();
-        recyclerView.setAdapter( photoBucketAdaptor);
+        recyclerView.setAdapter(photoBucketAdaptor);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -49,10 +49,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     private void showAddDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        View view = getLayoutInflater().inflate(R.layout.photo_bucket_dialog,null,false);
+        View view = getLayoutInflater().inflate(R.layout.photo_bucket_dialog, null, false);
         builder.setView(view);
         builder.setTitle("Add a photo");
         final TextView captionEditText = view.findViewById(R.id.dialog_caption_edittext);
@@ -61,15 +62,23 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+
                 Map<String, Object> mq = new HashMap<>();
-                mq.put(Constants.KEY_CAPTION, captionEditText.getText().toString() );
-                mq.put(Constants.KEY_URL, URLEditText.getText().toString());
+
+                mq.put(Constants.KEY_CAPTION, captionEditText.getText().toString());
+                if (URLEditText.getText().toString().length() == 0) {
+                    RandomImage randomImage = new RandomImage();
+                    mq.put(Constants.KEY_URL, randomImage.randomImageUrl());
+                } else {
+                    mq.put(Constants.KEY_URL, URLEditText.getText().toString());
+                }
                 mq.put(Constants.KEY_CREATED, new Date());
+                
                 FirebaseFirestore.getInstance().collection(Constants.COLLECTION_PATH).add(mq);
 
             }
         });
-        builder.setNegativeButton(android.R.string.cancel,null);
+        builder.setNegativeButton(android.R.string.cancel, null);
         builder.show();
     }
 
