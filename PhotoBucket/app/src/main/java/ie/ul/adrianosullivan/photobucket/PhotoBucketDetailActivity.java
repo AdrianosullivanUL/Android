@@ -80,7 +80,7 @@ public class PhotoBucketDetailActivity extends AppCompatActivity {
 
         View view = getLayoutInflater().inflate(R.layout.photo_bucket_dialog, null, false);
         builder.setView(view);
-        builder.setTitle("Edit this quote");
+        builder.setTitle("Edit Photo");
         final TextView captionEditText = view.findViewById(R.id.dialog_caption_edittext);
         final TextView urlEditText = view.findViewById(R.id.dialog_url_edittext);
 
@@ -89,6 +89,7 @@ public class PhotoBucketDetailActivity extends AppCompatActivity {
 
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
             @Override
+
             public void onClick(DialogInterface dialog, int which) {
                 Map<String, Object> mq = new HashMap<>();
                 mq.put(Constants.KEY_CAPTION, captionEditText.getText().toString());

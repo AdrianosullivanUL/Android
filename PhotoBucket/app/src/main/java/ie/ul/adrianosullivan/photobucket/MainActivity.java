@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         View view = getLayoutInflater().inflate(R.layout.photo_bucket_dialog, null, false);
         builder.setView(view);
-        builder.setTitle("Add a photo");
+        builder.setTitle("Add photo");
         final TextView captionEditText = view.findViewById(R.id.dialog_caption_edittext);
         final TextView URLEditText = view.findViewById(R.id.dialog_url_edittext);
 
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     mq.put(Constants.KEY_URL, URLEditText.getText().toString());
                 }
                 mq.put(Constants.KEY_CREATED, new Date());
-                
+
                 FirebaseFirestore.getInstance().collection(Constants.COLLECTION_PATH).add(mq);
 
             }
